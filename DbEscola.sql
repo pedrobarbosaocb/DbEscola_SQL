@@ -88,7 +88,7 @@ SELECT * FROM tbl_notas;
 SELECT * FROM tbl_turmas;
 
 -- Selecionando o nome do aluno, a nota no bimestre 1 e a disciplina
-SELECT Aluno, Bim_1, Disciplina FROM tbl_notas
-INNER JOIN tbl_disciplinas 
-ON tbl_notas.DisciplinaID = tbl_disciplinas.DisciplinaID 
-INNER JOIN tbl_alunos ON tbl_notas.AlunoID = tbl_alunos.AlunoID;
+SELECT Aluno, Bim_1, Disciplina FROM tbl_notas						-- SELECT <coluna desejada das tabelas juntas>, ..., <coluna desej[...]> FROM <tabela_base>
+INNER JOIN tbl_disciplinas											-- INNER JOIN <tabela que a ser juntada> 
+ON tbl_notas.DisciplinaID = tbl_disciplinas.DisciplinaID			-- ON <condicao para que junte> -> nesse caso quando retorna as tabelas ordenadas para quando DisciplinasID tem o mesmo "valor" nas duas tabelas
+INNER JOIN tbl_alunos ON tbl_notas.AlunoID = tbl_alunos.AlunoID;	-- INNER JOIN <tabela que a ser juntada> ON <condicao para que junte>

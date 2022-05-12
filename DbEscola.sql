@@ -44,13 +44,13 @@ VALUES	('Ana',		 31415),
 		('Irene',	 67122);
 
 INSERT INTO tbl_disciplinas (Disciplina) 
-VALUES	('Português'),
-		('Inglês'),
-		('Matemática'),
-		('História'),
+VALUES	('PortuguÃªs'),
+		('InglÃªs'),
+		('MatemÃ¡tica'),
+		('HistÃ³ria'),
 		('Geografia'),
-		('Física'),
-		('Química'),
+		('FÃ­sica'),
+		('QuÃ­mica'),
 		('Biologia');
 
 INSERT INTO tbl_notas (DisciplinaID, AlunoID, Bim_1) 
@@ -89,6 +89,6 @@ SELECT * FROM tbl_turmas;
 
 -- Selecionando o nome do aluno, a nota no bimestre 1 e a disciplina
 SELECT Aluno, Bim_1, Disciplina FROM tbl_notas						-- SELECT <coluna desejada das tabelas juntas>, ..., <coluna desej[...]> FROM <tabela_base>
-INNER JOIN tbl_disciplinas											-- INNER JOIN <tabela que a ser juntada> 
-ON tbl_notas.DisciplinaID = tbl_disciplinas.DisciplinaID			-- ON <condicao para que junte> -> nesse caso quando retorna as tabelas ordenadas para quando DisciplinasID tem o mesmo "valor" nas duas tabelas
-INNER JOIN tbl_alunos ON tbl_notas.AlunoID = tbl_alunos.AlunoID;	-- INNER JOIN <tabela que a ser juntada> ON <condicao para que junte>
+INNER JOIN tbl_disciplinas								-- INNER JOIN <tabela a ser juntada> 
+ON tbl_notas.DisciplinaID = tbl_disciplinas.DisciplinaID			        -- ON <condicao para que junte> -> nesse caso quando retorna as tabelas ordenadas para quando DisciplinasID tem o mesmo "valor" nas duas tabelas
+INNER JOIN tbl_alunos ON tbl_notas.AlunoID = tbl_alunos.AlunoID;	                -- INNER JOIN <tabela que a ser juntada> ON <condicao para que junte>

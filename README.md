@@ -2,3 +2,4 @@
 Criando uma base de dados de uma escola fictícia
 
 ## This is a SQL project which simulates a school database
+![](./Abstraction/DbEscola_Abs.png)

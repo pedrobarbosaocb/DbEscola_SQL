@@ -1,7 +1,8 @@
-CREATE DATABASE dbEscolaTeste;
+CREATE DATABASE dbEscola;
 
-USE dbEscolaTeste;
+USE dbEscola;
 
+-- Criando tabelas
 CREATE TABLE tbl_alunos(
 	AlunoID int identity(1,1) PRIMARY KEY,
 	Aluno varchar(20),
@@ -29,6 +30,9 @@ CREATE TABLE tbl_turmas(
 	Sala int
 );
 
+-- OBS.: Os relacionamentos foram feitos por meio do design
+
+-- Inserindo dados a cada tabela
 INSERT INTO tbl_alunos (Aluno, Matricula) 
 VALUES	('Ana',		 31415),
 		('Beatriz',	 92686),
@@ -77,13 +81,13 @@ VALUES	(600, 1, 1, 101),
 		(600, 2, 5, 103),
 		(600, 2, 6, 103);
 
-
+-- Verificando tabelas
 SELECT * FROM tbl_alunos;
 SELECT * FROM tbl_disciplinas;
 SELECT * FROM tbl_notas;
 SELECT * FROM tbl_turmas;
 
-
+-- Selecionando o nome do aluno, a nota no bimestre 1 e a disciplina
 SELECT Aluno, Bim_1, Disciplina FROM tbl_notas
 INNER JOIN tbl_disciplinas 
 ON tbl_notas.DisciplinaID = tbl_disciplinas.DisciplinaID 

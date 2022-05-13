@@ -4,19 +4,20 @@ USE dbEscola;
 
 -- Criando tabelas
 CREATE TABLE tbl_alunos(
-	AlunoID int identity(1,1) PRIMARY KEY,
+	AlunoID int not null identity(1,1) PRIMARY KEY,
 	Aluno varchar(20),
 	Matricula int
 );
 
 CREATE TABLE tbl_disciplinas(
-	DisciplinaID int identity(1,1) PRIMARY KEY,
+	DisciplinaID int not null identity(1,1) PRIMARY KEY,
 	Disciplina varchar(20)
 );
 
 CREATE TABLE tbl_notas(
-	DisciplinaID int,
-	AlunoID int,
+	NotasID int not null identity(1,1) PRIMARY KEY,
+	DisciplinaID int FOREIGN KEY REFERENCES tbl_disciplinas(DisciplinaID),
+	AlunoID int FOREIGN KEY REFERENCES tbl_alunos(AlunoID),
 	Bim_1 decimal(10,2),
 	Bim_2 decimal(10,2),
 	Bim_3 decimal(10,2),
@@ -24,13 +25,11 @@ CREATE TABLE tbl_notas(
 );
 
 CREATE TABLE tbl_turmas(
-	TurmaID int,
-	DisciplinaID int,
-	AlunoID int,
+	TurmaID int not null PRIMARY KEY,
+	DisciplinaID int FOREIGN KEY REFERENCES tbl_disciplinas(DisciplinaID),
+	AlunoID int FOREIGN KEY REFERENCES tbl_alunos(AlunoID),
 	Sala int
 );
-
--- OBS.: Os relacionamentos foram feitos por meio do design
 
 -- Inserindo dados a cada tabela
 INSERT INTO tbl_alunos (Aluno, Matricula) 
